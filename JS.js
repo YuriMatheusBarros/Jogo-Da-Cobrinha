@@ -12,7 +12,7 @@ const canvas = document.querySelector('canvas')
 
  let speed = 300;
 
- const minSpeed = 50;
+ const minSpeed = 70;
 
  const initialPosition = { x: 270, y: 240 }
 
