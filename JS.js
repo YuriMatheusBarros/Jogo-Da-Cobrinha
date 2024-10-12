@@ -1,4 +1,4 @@
- const canvas = document.querySelector('canvas')
+const canvas = document.querySelector('canvas')
  const ctx = canvas.getContext('2d')
 
  const score = document.querySelector(".score--value")
@@ -10,12 +10,17 @@
 
  const size = 30;
 
+ let speed = 300;
+
+ const minSpeed = 80;
+
  const initialPosition = { x: 270, y: 240 }
 
  let snake = [initialPosition]
 
   const incrementScore = () => {
     score.innerText = +score.innerText + 5
+    speed = Math.max(minSpeed, speed - 10);
   }
 
   const randomNumber = (min, max) => {
@@ -172,7 +177,7 @@
   loopId = setTimeout(() => {
   gameLoop()
 
- }, 120)
+ }, speed);
   }
 
   gameLoop()
@@ -201,5 +206,7 @@
     menu.style.display = "none"
     canvas.style.filter = "none"
 
-    snake = [initialPosition]
+    snake = [initialPosition];
+    speed = 300;
   })
+
