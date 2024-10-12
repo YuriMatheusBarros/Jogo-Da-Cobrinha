@@ -172,7 +172,7 @@
   loopId = setTimeout(() => {
   gameLoop()
 
- }, 350)
+ }, 120)
   }
 
   gameLoop()
