@@ -19,7 +19,7 @@ const canvas = document.querySelector('canvas')
  let snake = [initialPosition]
 
   const incrementScore = () => {
-    score.innerText = +score.innerText + 5
+    score.innerText = +score.innerText + 10
     speed = Math.max(minSpeed, speed - 10);
   }
 
