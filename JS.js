@@ -60,12 +60,12 @@ const canvas = document.querySelector('canvas')
   }
 
   const drawSnake = () => {
-  ctx.fillStyle = "#ddd"
+  ctx.fillStyle = randomColor()
   
   snake.forEach((position, index) => {
 
     if (index == snake.length - 1) {
-      ctx.fillStyle = 'white'
+      ctx.fillStyle = randomColor();
     }
     ctx.fillRect(position.x, position.y, size, size)
   })
