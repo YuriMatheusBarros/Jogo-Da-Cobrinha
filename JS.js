@@ -8,19 +8,30 @@ const canvas = document.querySelector('canvas')
 
  const audio = new Audio('assets_audio.mp3')
 
+ const backgroundAudio = document.getElementById('background-audio');
+
+ const DefeatAudio = document.getElementById('Defeat-audio');
+
+ DefeatAudio.loop = false;
+
+ let audioPlayed = false;
+
+
  const size = 30;
 
- let speed = 300;
+ let speed = 250;
 
- const minSpeed = 70;
+ const minSpeed = 50;
 
  const initialPosition = { x: 270, y: 240 }
 
  let snake = [initialPosition]
 
+ let isGameStarted = false;
+
   const incrementScore = () => {
     score.innerText = +score.innerText + 10
-    speed = Math.max(minSpeed, speed - 10);
+    speed = Math.max(minSpeed, speed - 5);
   }
 
   const randomNumber = (min, max) => {
@@ -161,6 +172,12 @@ const canvas = document.querySelector('canvas')
     menu.style.display = "flex"
     finalScore.innerText = score.innerText
     canvas.style.filter = "blur(4px)"
+    backgroundAudio.pause();
+    if (!audioPlayed) {
+      DefeatAudio.play();
+      audioPlayed = true; 
+  }
+    
   }
 
   const gameLoop = () => {
@@ -173,6 +190,7 @@ const canvas = document.querySelector('canvas')
   drawSnake()
   chackEat()
   checkCollision()
+  
 
   loopId = setTimeout(() => {
   gameLoop()
@@ -183,23 +201,42 @@ const canvas = document.querySelector('canvas')
   gameLoop()
 
   document.addEventListener("keydown", ({key}) => {
-  if (key == 'ArrowRight' && direction != 'left') {
-    direction = 'right'
+    if (key == 'ArrowRight' && direction != 'left') {
+      direction = 'right';
+      if (!isGameStarted) { 
+          backgroundAudio.play();
+          isGameStarted = true; 
+          gameLoop(); 
+      }
   }
 
   if (key == 'ArrowLeft' && direction != 'right') {
-    direction = 'left'
+      direction = 'left';
+      if (!isGameStarted) {
+          backgroundAudio.play();
+          isGameStarted = true;
+          gameLoop();
+      }
   }
 
   if (key == 'ArrowDown' && direction != 'up') {
-    direction = 'down'
+      direction = 'down';
+      if (!isGameStarted) {
+          backgroundAudio.play();
+          isGameStarted = true;
+          gameLoop();
+      }
   }
 
   if (key == 'ArrowUp' && direction != 'down') {
-    direction = 'up'
+      direction = 'up';
+      if (!isGameStarted) {
+          backgroundAudio.play();
+          isGameStarted = true;
+          gameLoop();
+      }
   }
-  
-  })
+})
 
   buttonPlay.addEventListener("click", () => {
     score.innerText = "00"
@@ -207,6 +244,10 @@ const canvas = document.querySelector('canvas')
     canvas.style.filter = "none"
 
     snake = [initialPosition];
-    speed = 300;
-  })
+    speed = 250;
 
+    audioPlayed = false;
+    backgroundAudio.currentTime = 0;
+    backgroundAudio.play();
+    gameLoop();
+  })
