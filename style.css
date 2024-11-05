@@ -15,9 +15,11 @@
   justify-content: center;
   flex-direction: column;
   color: rgb(255, 58, 212);
+  background-image: url("https://conteudo.imguol.com.br/blogs/8/files/2013/04/dAtcCfH.gif");
+  background-size: cover;
  }
  canvas {
-  background-color: black;
+  background-color: rgb(255, 255, 255);
  }
 
  .score {
@@ -59,7 +61,8 @@
   padding: 10px 15px 10px 12px;
   font-size: 1rem;
   font-weight: 600;
-  color: #333;
+  color: #ffffff;
+  background-color: #000000;
   margin-top: 40px;
   display: flex;
   align-items: center;
