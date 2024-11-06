@@ -19,7 +19,7 @@ const canvas = document.querySelector('canvas')
 
  const size = 30;
 
- let speed = 250;
+ let speed = 230;
 
  const minSpeed = 50;
 
@@ -244,7 +244,7 @@ const canvas = document.querySelector('canvas')
     canvas.style.filter = "none"
 
     snake = [initialPosition];
-    speed = 250;
+    speed = 230;
 
     audioPlayed = false;
     backgroundAudio.currentTime = 0;
