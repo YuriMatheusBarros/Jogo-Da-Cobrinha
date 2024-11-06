@@ -6,9 +6,9 @@
   box-sizing: border-box;
   font-family: 'Poppins', sans-serif;
   overflow: hidden;
- }
+}
 
- body {
+body {
   background-color: #180322;
   display: flex;
   min-height: 100vh;
@@ -18,48 +18,52 @@
   color: rgb(255, 58, 212);
   background-image: url("https://conteudo.imguol.com.br/blogs/8/files/2013/04/dAtcCfH.gif");
   background-size: cover;
- }
- canvas {
-  background-color: rgb(255, 255, 255);
- }
+  overflow: hidden;
+}
 
- .score {
+canvas {
+  background-color: rgb(255, 255, 255);
+  max-width: 90vw;
+  max-height: 70vh;
+}
+
+.score {
   display: flex;
   flex-direction: column;
   align-items: center;
   font-size: 1.8rem;
- }
+}
 
- .score--value {
+.score--value {
   font-weight: 700;
   font-size: 4.5rem;
   display: block;
   margin-top: -10px;
- }
+}
 
- .menu-screen {
+.menu-screen {
   position: absolute;
   display: none;
   flex-direction: column;
   align-items: center;
   z-index: 1;
- }
+}
 
- .game-over {
+.game-over {
   text-transform: uppercase;
   font-weight: 700;
   font-size: 3rem;
- }
+}
 
- .final-score {
+.final-score {
   font-weight: 500;
   font-size: 1.5rem;
- }
+}
 
- .btn-play {
+.btn-play {
   border: none;
   border-radius: 100px;
-  padding: 10px 15px 10px 12px;
+  padding: 10px 15px;
   font-size: 1rem;
   font-weight: 600;
   color: #ffffff;
@@ -70,5 +74,29 @@
   justify-content: center;
   gap: 5px;
   cursor: pointer;
- }
+}
+
+@media (max-width: 768px) {
+  body {
+    flex-direction: column;
+  }
+
+  .game-over {
+    font-size: 2.5rem;
+  }
+
+  .final-score {
+    font-size: 1.3rem;
+  }
+
+  .btn-play {
+    padding: 8px 12px;
+    font-size: 0.9rem;
+    margin-top: 30px;
+  }
+
+  .score--value {
+    font-size: 3.5rem;
+  }
+}
 
