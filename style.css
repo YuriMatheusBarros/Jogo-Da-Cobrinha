@@ -17,6 +17,7 @@
   color: rgb(255, 58, 212);
   background-image: url("https://conteudo.imguol.com.br/blogs/8/files/2013/04/dAtcCfH.gif");
   background-size: cover;
+  overflow: hidden;
  }
  canvas {
   background-color: rgb(255, 255, 255);
